@@ -19,7 +19,7 @@ public class Fila {
 
     //insere um elemento no fim da fila
     public void enqueue(Object o) {
-        if (size() == capacity) {
+        if (size() == capacity - 1) {
             int currentSize = size();
             int newCapacity = capacity * 2;
             Object[] newArray = new Object[newCapacity];

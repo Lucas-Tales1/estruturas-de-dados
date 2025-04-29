@@ -1,3 +1,6 @@
+package filaLista;
+import java.util.NoSuchElementException;
+
 public class ListaEncadeada {
     private Node head;
     private int tamanho;
@@ -49,10 +52,6 @@ public class ListaEncadeada {
         }
     }
 
-    public void printLista() {
-
-    }
-
     public int size() {
         return tamanho;
     }
@@ -61,6 +60,22 @@ public class ListaEncadeada {
         return tamanho == 0;
     }
 
+    public Object getElemento(int posicao) {
+        if (posicao < 0 || posicao >= tamanho) {
+            throw new IndexOutOfBoundsException("Posição inválida");
+        }
 
+        Node atual = head;
+        for (int i = 0; i < posicao; i++) {
+            atual = atual.getProximo();
+        }
+        return atual.getElemento();
+    }
 
+    public Object first() {
+        if (head == null) {
+            throw new NoSuchElementException("A lista está vazia");
+        }
+        return head.getElemento();
+    }
 }

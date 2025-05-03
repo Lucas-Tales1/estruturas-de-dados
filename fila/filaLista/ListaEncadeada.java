@@ -1,81 +1,89 @@
 package filaLista;
-import java.util.NoSuchElementException;
 
 public class ListaEncadeada {
     private Node head;
-    private int tamanho;
 
     public ListaEncadeada() {
-        head = null;
-        tamanho = 0;
+        this.head = null;
     }
 
-    public void add(Object o) {
-        Node novo = new Node();
-        novo.setElemento(o);
-        novo.setProximo(null);
-
-        if(head == null) {
+    public void add(Object elemento) {
+        Node novo = new Node(elemento, null);
+        if (head == null) {
             head = novo;
         }else {
             Node atual = head;
-            while(atual.getProximo() != null) {
+            while (atual.getProximo() != null) {
                 atual = atual.getProximo();
             }
             atual.setProximo(novo);
         }
-        tamanho++;
-    }
+    } 
 
-    public void remove(Object valor) {
-
-        if (head == null) {
+    public void remove(Object elemento) {
+        if (isEmpty()) {
             return;
-        } 
+        }
 
-        if (head.getElemento().equals(valor)) {
+        if (head.getElemento().equals(elemento)) {
             head = head.getProximo();
-            tamanho--;
             return;
         }
 
         Node atual = head;
 
-        while(atual.getProximo() != null && !atual.getProximo().getElemento().equals(valor)) {
-            atual = atual.getProximo();
+        while(atual.getProximo()!= null && !atual.getProximo().getElemento().equals(elemento)) {
+            atual = atual.getProximo(); 
         }
-    
+
         if (atual.getProximo() != null) {
             atual.setProximo(atual.getProximo().getProximo());
-            tamanho--;
-            return;
         }
-    }
-
-    public int size() {
-        return tamanho;
     }
 
     public boolean isEmpty() {
-        return tamanho == 0;
+        return head == null;
     }
 
-    public Object getElemento(int posicao) {
-        if (posicao < 0 || posicao >= tamanho) {
-            throw new IndexOutOfBoundsException("Posição inválida");
+    public int size() {
+        int contador = 0;
+        Node atual = head;
+
+        while(atual != null) {
+            contador++;
+            atual = atual.getProximo();
+        }
+        return contador;
+    }
+
+    public void print() {
+        if (isEmpty()){
+            System.out.println("A lista está vazia.");
+            return;
         }
 
         Node atual = head;
-        for (int i = 0; i < posicao; i++) {
+
+        System.out.print("[");
+        while(atual != null) {
+            if (atual.getProximo() == null) {
+                System.out.print(atual.getElemento());
+            }else {
+                System.out.print(atual.getElemento() + ", ");
+            }
             atual = atual.getProximo();
         }
-        return atual.getElemento();
+        System.out.print("]");
     }
 
-    public Object first() {
-        if (head == null) {
-            throw new NoSuchElementException("A lista está vazia");
+    public Object getFirst() {
+        if (isEmpty()) {
+            System.out.println("Lista vazia!");
         }
         return head.getElemento();
     }
+
+
+
+
 }

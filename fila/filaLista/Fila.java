@@ -1,43 +1,32 @@
 package filaLista;
-import java.util.NoSuchElementException;
 
 public class Fila {
-    private ListaEncadeada lista;   
+
+    private ListaEncadeada fila;
 
     public Fila() {
-        lista = new ListaEncadeada();
+        this.fila = new ListaEncadeada();
     }
 
-    // Adiciona um elemento no final da fila
-    public void enqueue(Object o) {
-        lista.add(o);
+    public void enqueue(Object elemento) {
+        fila.add(elemento);
     }
 
-    // Remove e retorna o elemento do início da fila
-    public Object dequeue() {
-        if (lista.isEmpty()) {
-            throw new NoSuchElementException("A fila está vazia");
+    public void dequeue() {
+        if (fila.isEmpty()) {
+            System.out.println("A fila está vazia!");
         }
-        Object elemento = lista.first();  // Acessa o primeiro elemento
-        lista.remove(elemento);           // Remove o primeiro elemento
-        return elemento;
+        fila.remove(fila.getFirst());
     }
 
-    // Retorna o primeiro elemento da fila sem removê-lo
     public Object first() {
-        if (lista.isEmpty()) {
-            throw new NoSuchElementException("A fila está vazia");
+        if (fila.isEmpty()) {
+            System.out.println("A fila está vazia!");
         }
-        return lista.first();  // Acessa o primeiro elemento sem removê-lo
+        return fila.getFirst();
     }
 
-    // Verifica se a fila está vazia
-    public boolean isEmpty() {
-        return lista.isEmpty();
-    }
-
-    // Retorna o tamanho da fila
     public int size() {
-        return lista.size();
+        return fila.size();
     }
 }

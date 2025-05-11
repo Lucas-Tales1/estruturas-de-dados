@@ -1,5 +1,3 @@
-
-
 public class Pilha {
     private Object[] array;
     private int topo = -1;
@@ -43,5 +41,16 @@ public class Pilha {
             throw new RuntimeException("Pilha vazia");
         }
         return topo;
+    }
+
+    public void print() {
+        if (isEmpty()) {
+        System.out.println("A pilha está vazia.");
+        return;
+        }
+        System.out.println("Elementos na pilha (base → topo):");
+        for (int i = 0; i <= topo; i++) {
+            System.out.println(array[i]);
+        }
     }
 }

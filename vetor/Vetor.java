@@ -1,8 +1,8 @@
 public interface Vetor {
-    public Object elementAtRank();
-    public Object replaceAtRank();
-    public void insertAtRank();
-    public Object removeAtRank();
-    public int size();
-    public boolean isEmpty();
+    Object elementAtRank(int posicao);
+    Object replaceAtRank(int posicao, Object elemento);
+    void insertAtRank(int posicao, Object elemento);
+    Object removeAtRank(int posicao);
+    int size();
+    boolean isEmpty();
 }

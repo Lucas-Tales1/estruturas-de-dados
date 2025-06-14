@@ -1,6 +1,8 @@
 # Pilha
 
-Pilha é um TAD(Tipo Abstrato de Dados) que armazena objetos arbitrários com inserções e remoções seguindo o esquema LIFO(Last in, First Off).
+![pilha](tad-pilha.png)
+
+Pilha é um TAD(Tipo Abstrato de Dado) que armazena objetos arbitrários com inserções e remoções seguindo o esquema LIFO(Last in, First Off).
 
 ## Principais operações
 

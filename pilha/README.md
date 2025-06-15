@@ -1,6 +1,6 @@
 # Pilha
 
-![pilha](tad-pilha.png)
+<img src="../images/stack.png" alt="pilha" width="400">
 
 Pilha é um TAD(Tipo Abstrato de Dado) que armazena objetos arbitrários com inserções e remoções seguindo o esquema LIFO(Last in, First Off).
 

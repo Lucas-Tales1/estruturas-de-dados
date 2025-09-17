@@ -71,8 +71,8 @@ public class PilhaRubroNegraArray implements PilhaRubroNegra {
             for (int i=capacidade-1; i>=topoPreto; i--) {
                 arrayNovo[i + capacidade] = array[i];
             }
+            topoPreto = capacidade*2 - sizePreta();
             capacidade *= 2;
-            topoPreto = capacidade - sizePreta();
             array = arrayNovo;
         }
         array[--topoPreto] = o;

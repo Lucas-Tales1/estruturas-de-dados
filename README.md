@@ -11,10 +11,4 @@ Java
 
 - Pilha
 
-- Fila
-
-- Vetor
-
-- Lista Simplesmente Encadeada
-
 - ...

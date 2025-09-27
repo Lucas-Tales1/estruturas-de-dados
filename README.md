@@ -1,4 +1,4 @@
-# Estrutura-de-dados
+# Estrutura de dados
 
 <img src="images/data_structures.png" alt="pilha" width="400">
 

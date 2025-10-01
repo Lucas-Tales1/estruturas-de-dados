@@ -1,5 +1,5 @@
 public class DequeD {
-    private ListaD lista;
+    ListaD lista;
 
     public DequeD() {
         this.lista = new ListaD();
@@ -37,33 +37,8 @@ public class DequeD {
         return lista.estaVazia();
     }
 
-    public void limpar() {
-        lista.limpar();
+    public void print(){
+        lista.print();
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        NodeD atual = getHead();
-        while (atual != null) {
-            sb.append(atual.getElemento());
-            if (atual.getProximo() != null) {
-                sb.append(", ");
-            }
-            atual = atual.getProximo();
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
-    private NodeD getHead() {
-        try {
-            java.lang.reflect.Field f = ListaD.class.getDeclaredField("head");
-            f.setAccessible(true);
-            return (NodeD) f.get(lista);
-        } catch (Exception e) {
-            return null;
-        }
-    }
 }

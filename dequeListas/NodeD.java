@@ -1,7 +1,7 @@
 public class NodeD {
-    private Object elemento;
-    private NodeD proximo;
-    private NodeD anterior;
+    Object elemento;
+    NodeD proximo;
+    NodeD anterior;
 
     public NodeD(Object elemento) {
         this.elemento = elemento;

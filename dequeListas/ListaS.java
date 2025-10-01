@@ -1,101 +1,107 @@
 public class ListaS {
-    private NodeS head;
-    private NodeS tail;
-    private int size;
+    NodeS head;
+    NodeS tail;
+    int size;
 
-    public ListaS() {
-        this.head = null;
-        this.tail = null;
-        this.size = 0;
-    }
-
-    public void inserirInicio(Object elemento) {
-        NodeS novo = new NodeS(elemento);
-
-        if (head == null) {
-            head = novo;
-            tail = novo;
-        } else {
-            novo.setProximo(head);
-            head = novo;
-        }
-        size++;
-    }
-
-    public void inserirFim(Object elemento) {
-        NodeS novo = new NodeS(elemento);
-
-        if (tail == null) {
-            head = novo;
-            tail = novo;
-        } else {
-            tail.setProximo(novo);
-            tail = novo;
-        }
-        size++;
-    }
-
-    public Object removerInicio() {
-        if (head == null) {
-            return null;
-        }
-
-        Object elemento = head.getElemento();
-        head = head.getProximo();
-        size--;
-
-        if (head == null) {
-            tail = null;
-        }
-        return elemento;
-    }
-
-    public Object removerFim() {
-        if (head == null) {
-            return null;
-        }
-
-        if (head == tail) { // só um elemento
-            Object elemento = head.getElemento();
-            head = null;
-            tail = null;
-            size--;
-            return elemento;
-        }
-
-        NodeS atual = head;
-        while (atual.getProximo() != tail) {
-            atual = atual.getProximo();
-        }
-
-        Object elemento = tail.getElemento();
-        tail = atual;
-        tail.setProximo(null);
-        size--;
-        return elemento;
-    }
-
-    public Object primeiro() {
-        if (head == null) return null;
-        return head.getElemento();
-    }
-
-    public Object ultimo() {
-        if (tail == null) return null;
-        return tail.getElemento();
-    }
-
-    public int tamanho() {
-        return size;
-    }
-
-    public boolean estaVazia() {
-        return size == 0;
-    }
-
-    public void limpar() {
+    public ListaS(){
         head = null;
         tail = null;
         size = 0;
     }
+
+    public void inserirInicio(Object elemento) {
+        NodeS node = new NodeS(elemento);
+        
+        if (estaVazia()){
+            head = node;
+            tail = node;
+        } else{
+            node.setProximo(head);
+            head = node;
+        }
+
+        size++;
+    }
+
+    public void inserirFim(Object elemento) {
+        NodeS node = new NodeS(elemento);
+
+        if (estaVazia()){
+            head = node;
+            tail = node;
+        } else{
+            tail.setProximo(node);
+            tail = node;
+        }
+
+        size++;
+    }
+
+    public Object removerInicio(){
+        if (estaVazia()){
+            return null;
+        } else{
+            size--;
+            Object temp = head.getElemento();
+            
+            if (head == tail) {
+                tail = null;
+            }
+            head = head.getProximo();
+            return temp;
+        }
+    }
+
+    public Object removerFim(){
+        if (estaVazia()){
+            return null;
+        }
+        
+        size --;
+
+        Object temp = tail.getElemento();
+
+        if (head == tail){
+            head = null;
+        } else{
+            
+            NodeS headTemp = head;
+            while (headTemp.getProximo() != tail){
+                headTemp = headTemp.getProximo();
+            }
+
+            tail = headTemp;
+            tail.setProximo(null);
+        }
+
+        return temp; 
+    }
+
+    public boolean estaVazia(){
+        return head == null;
+    }
+
+    public Object primeiro(){
+        return head.getElemento();
+    }
+
+    public Object ultimo(){
+        return tail.getElemento();
+    }
+
+    public int tamanho(){
+        return size;
+    }
+
+    public void print(){
+        NodeS headTemp = head;
+
+        while (headTemp != null){
+            System.out.print(headTemp.getElemento() + " ");
+            headTemp = headTemp.getProximo();
+        }
+
+        System.out.println();
+    }
+
 }

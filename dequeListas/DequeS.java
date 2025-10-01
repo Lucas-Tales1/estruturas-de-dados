@@ -1,5 +1,5 @@
 public class DequeS {
-    private ListaS lista;
+    ListaS lista;
 
     public DequeS() {
         this.lista = new ListaS();
@@ -37,12 +37,7 @@ public class DequeS {
         return lista.estaVazia();
     }
 
-    public void limpar() {
-        lista.limpar();
-    }
-
-    @Override
-    public String toString() {
-        return lista.toString(); // aproveita o toString da lista
+    public void print() {
+        lista.print();
     }
 }

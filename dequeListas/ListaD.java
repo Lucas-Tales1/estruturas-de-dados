@@ -1,7 +1,7 @@
 public class ListaD {
-    private NodeD head;
-    private NodeD tail;
-    private int size;
+    NodeD head;
+    NodeD tail;
+    int size;
 
     public ListaD() {
         this.head = null;
@@ -10,86 +10,93 @@ public class ListaD {
     }
 
     public void inserirInicio(Object elemento) {
-        NodeD novo = new NodeD(elemento);
+        NodeD node = new NodeD(elemento);
 
-        if (head == null) {
-            head = novo;
-            tail = novo;
-        } else {
-            novo.setProximo(head);
-            head.setAnterior(novo);
-            head = novo;
+        if (estaVazia()) {
+            head = node;
+            tail = node;
+        } else{
+            node.setProximo(head);
+            head.setAnterior(node);
+            head = node;
         }
         size++;
     }
 
-    public void inserirFim(Object elemento) {
-        NodeD novo = new NodeD(elemento);
-
-        if (tail == null) {
-            head = novo;
-            tail = novo;
-        } else {
-            tail.setProximo(novo);
-            novo.setAnterior(tail);
-            tail = novo;
+    public void inserirFim(Object elemento){
+        NodeD node = new NodeD(elemento);
+        
+        if (estaVazia()) {
+            head = node;
+            tail = node;
+        } else{
+            tail.setProximo(node);
+            node.setAnterior(tail);
+            tail = node;
         }
         size++;
     }
 
-    public Object removerInicio() {
-        if (head == null) {
+    public Object removerInicio(){
+        if (estaVazia()){
             return null;
         }
+        size--;
+        Object temp = head.getElemento();
 
-        Object elemento = head.getElemento();
-        head = head.getProximo();
-
-        if (head == null) {
+        if (head == tail) {
+            head = null;
             tail = null;
         } else {
+            head = head.getProximo();
             head.setAnterior(null);
         }
-        size--;
-        return elemento;
+
+        return temp;
     }
 
-    public Object removerFim() {
-        if (tail == null) {
+    public Object removerFim(){
+        if (estaVazia()) {
             return null;
         }
+        size--;
+        Object temp = tail.getElemento();
 
-        Object elemento = tail.getElemento();
-        tail = tail.getAnterior();
-
-        if (tail == null) {
+        if (head == tail) { 
             head = null;
+            tail = null;
         } else {
+            tail = tail.getAnterior();
             tail.setProximo(null);
         }
-        size--;
-        return elemento;
+
+        return temp;
     }
 
-    public Object primeiro() {
-        return (head != null) ? head.getElemento() : null;
+    public Object primeiro(){
+        return head.getElemento();
     }
 
-    public Object ultimo() {
-        return (tail != null) ? tail.getElemento() : null;
+    public Object ultimo(){
+        return tail.getElemento();
     }
-
-    public int tamanho() {
+    
+    public int tamanho(){
         return size;
     }
 
     public boolean estaVazia() {
-        return size == 0;
+        return head == null;
     }
 
-    public void limpar() {
-        head = null;
-        tail = null;
-        size = 0;
+    public void print(){
+        NodeD headTemp = head;
+
+        while (headTemp != null){
+            System.out.print(headTemp.getElemento() + " ");
+            headTemp = headTemp.getProximo();
+        }
+
+        System.out.println();
     }
 }

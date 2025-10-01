@@ -1,6 +1,6 @@
 public class NodeS {
-    private Object elemento;
-    private NodeS proximo;
+    Object elemento;
+    NodeS proximo;
 
     public NodeS(Object elemento) {
         this.elemento = elemento;

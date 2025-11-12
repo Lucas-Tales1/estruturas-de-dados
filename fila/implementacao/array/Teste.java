@@ -7,6 +7,7 @@ public class Teste {
         fila.enqueue("B");
         
         System.out.println(fila.first()); 
-        System.out.println(fila.size());  
+        System.out.println(fila.size()); 
+        fila.print();
     }
 }

@@ -14,7 +14,7 @@ public class Fila implements FilaI {
     }
 
     public void enqueue(Object elemento) {
-        if (size() == capacidade) {
+        if (size() == capacidade-1) {
             Object[] novoArray = new Object[capacidade * 2];
 
             for (int i = 0 ; i < size() ; i++) {
@@ -22,11 +22,12 @@ public class Fila implements FilaI {
             }
             array = novoArray;
             inicio = 0;
-            fim = capacidade;
+            fim = capacidade - 1;
             capacidade *= 2;
         }
+
         array[fim] = elemento;
-        inicio = (inicio + 1) % capacidade;
+        //inicio = (inicio + 1) % capacidade;
         fim = (fim + 1) % capacidade;
     }
 
@@ -47,7 +48,11 @@ public class Fila implements FilaI {
     }
 
     public void print() {
-        
+        System.out.print("[");
+        for (int i=0; i<capacidade; i++){
+            System.out.print(array[i]+",");
+        }
+        System.out.println("]");
     }
     
 }

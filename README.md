@@ -5,7 +5,8 @@
 Repositório destinado ao estudo da disciplina de estrutura de dados
 
 # Linguagem utilizada 
-Java
+<img src="https://github.com/devicons/devicon/blob/v2.17.0/icons/java/java-original.svg">
+Java 24
 
 # Estruturas de dados implementadas até o momento:
 

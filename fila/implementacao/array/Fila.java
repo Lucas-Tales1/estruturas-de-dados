@@ -27,15 +27,22 @@ public class Fila implements FilaI {
         }
 
         array[fim] = elemento;
-        //inicio = (inicio + 1) % capacidade;
         fim = (fim + 1) % capacidade;
     }
 
     public Object dequeue() {
-        throw new UnsupportedOperationException("Unimplemented method 'dequeue'");
+        if (isEmpty()) {
+            return null;
+        }
+        Object temp = array[inicio];
+        inicio = (inicio + 1) % capacidade;
+        return temp;
     }
 
     public Object first() {
+        if (isEmpty()) {
+            return new RuntimeException("Fila vazia");
+        }
         return array[inicio];
     }
 

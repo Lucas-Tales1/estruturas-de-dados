@@ -39,4 +39,10 @@ public class Lista implements ListaI{
         array[indice1] = array[indice2];
         array[indice2] = temp;
     }
+
+    public insertBefore(int indice, Object o){
+        if (size() == capacidade){
+            
+        }
+    }
 }

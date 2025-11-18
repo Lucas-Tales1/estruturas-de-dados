@@ -20,5 +20,5 @@ public interface ListaI {
     public Object insertFirst(Object o);
     public Object insertLast(Object o);
 
-    public Object remove(Object o);
+    public Object remove(int indice);
 }

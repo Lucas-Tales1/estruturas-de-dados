@@ -4,17 +4,39 @@ public class Lista implements ListaI{
 
     public Lista(int capacidade) {
         array = new Object[capacidade];
+        contador = 0;
     }
 
     public int size(){
         return contador;
     }
 
-    public isEmpty(){
+    public boolean isEmpty(){
         return contador == 0;
     }
 
     public Object first(){
-        return array[]
+        if (contador == 0){
+            return null;
+        } 
+        return array[0];
+    }
+
+    public Object last(){
+        if (contador == 0){
+            return null;
+        } 
+            
+        return array[size() - 1];
+    }
+
+    public void replaceElement(int indice, Object o){
+        array[indice] = o;
+    }
+
+    public void swapElements(int indice1, int indice2){
+        Object temp = array[indice1];
+        array[indice1] = array[indice2];
+        array[indice2] = temp;
     }
 }

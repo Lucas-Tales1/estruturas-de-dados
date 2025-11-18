@@ -1,17 +1,17 @@
-package lista.implementacao.listad;
-
 public class Lista implements ListaI {
     Node primeiro;
     Node ultimo;
 
     public Lista() {
+        primeiro = new Node(null);
+        ultimo = new Node(null);
         primeiro.setProximo(ultimo);
         ultimo.setAnterior(primeiro);
     }
 
     @Override
     public int size() {
-        Node atual = primeiro;
+        Node atual = primeiro.getProximo(); 
         int contador = 0;
         while (atual != ultimo){
             contador++;
@@ -23,6 +23,20 @@ public class Lista implements ListaI {
     @Override
     public boolean isEmpty() {
         return primeiro.getProximo() == ultimo;
+    }
+
+    @Override
+    public void print() {
+        Node iterador = primeiro.getProximo(); 
+        System.out.print("[");
+        while (iterador != ultimo){
+            System.out.print(iterador.getElemento());
+            if (iterador.getProximo() != ultimo) {
+                System.out.print(",");
+            }
+            iterador = iterador.getProximo();
+        }
+        System.out.println("]");
     }
 
     @Override
@@ -99,14 +113,19 @@ public class Lista implements ListaI {
 
     @Override
     public Node insertLast(Object o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertLast'");
+        Node novo = new Node(o);
+        novo.setAnterior(ultimo.getAnterior());
+        ultimo.getAnterior().setProximo(novo);
+        ultimo.setAnterior(novo);
+        novo.setProximo(ultimo);
+        return novo;
     }
 
     @Override
     public Object remove(Node n) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        n.getAnterior().setProximo(n.getProximo());
+        n.getProximo().setAnterior(n.getAnterior());
+        return n.getElemento();
     }
     
 }

@@ -1,5 +1,3 @@
-package lista.implementacao.listad;
-
 public class Node {
     Node anterior;
     Object elemento;

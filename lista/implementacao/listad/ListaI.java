@@ -1,9 +1,8 @@
-package lista.implementacao.listad;
-
 public interface ListaI {
 
     public int size();
     public boolean isEmpty();
+    public void print();
 
     public Node first();
     public Node last();

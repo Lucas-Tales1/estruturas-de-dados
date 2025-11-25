@@ -1,6 +1,6 @@
 # Estrutura de dados
 
-<img src="images/data_structures.png" alt="banner" width="400">
+<img src="src/images/data_structures.png" alt="banner" width="400">
 
 Repositório destinado ao estudo da disciplina de estrutura de dados
 

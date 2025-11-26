@@ -1,4 +1,4 @@
-package trabalhos.pilhaRubroNegra;
+package exercicios.pilha.q5;
 
 public class testePilhaRubroNegra {
     public static void main(String[] args) {

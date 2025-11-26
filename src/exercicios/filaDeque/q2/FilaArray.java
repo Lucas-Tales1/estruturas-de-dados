@@ -27,7 +27,7 @@ public class FilaArray implements FilaI {
             Object[] novoArray = new Object[novaCapacidade];
 
             int tempInicio = inicio;
-            for (int i = 0; i<size();i++){
+            for (int i = 0; i < size(); i++){
                 novoArray[i] = array[tempInicio];
                 tempInicio = (tempInicio + 1) % capacidade;
             }
@@ -37,6 +37,15 @@ public class FilaArray implements FilaI {
             inicio = 0;
             capacidade = novaCapacidade;
         }
+
+        array[fim] = elemento;
+        fim = (fim + 1) % capacidade;
+    }
+
+    public Object dequeue() {
+        Object temp = array[inicio];
+        inicio = (inicio + 1) % capacidade;
+        return temp;
     }
 
     public Object first() {
@@ -51,7 +60,14 @@ public class FilaArray implements FilaI {
         return inicio == fim;
     }
 
-    public void print() {
-
+    public void print(){
+        System.out.print("[");
+        for (int i =0 ; i < capacidade ; i++){
+            System.out.print(array[i]);
+            if (i != capacidade-1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
     }
 }
